@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的響應式網頁</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #3f51b5;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem;
+      width: 300px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .btn {
+      background-color: #91a2ff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    /* 手機版樣式 */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #3f51b5;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RWD 網頁</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="navbar">
+      <a href="#">首頁</a>
+      <a href="#">關於我們</a>
+      <a href="#">聯絡</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>自我介紹</h2>
+      <button class="btn" onclick="alert('我是資管一A的B11356054 張惠淨')">點我</button>
+    </div>
+    <div class="card">
+      <h2>興趣</h2>
+      <button class="btn" onclick="alert('我有時候喜歡出去玩、看看風景，有時候喜歡一個人待在家裡聽音樂、睡覺')">點我</button>
+    </div>
+    <div class="card">
+      <h2>讀書計畫</h2>
+      <button class="btn" onclick="alert('現在就是想要學好程式語言、英文，然後順利畢業')">點我</button>
+    </div>
+    <div class="card">
+      <h2>心得</h2>
+      <button class="btn" onclick="alert('這學期學的我覺得很難，因為一開始上課的時候，我發現有些東西同學們上學期就學過了，而我上學期沒有選修到，所以他們上過的東西我沒上過，只能自己回家學，所以我進度跟不上，但我會慢慢跟上的')">點我</button>
+    </div>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
